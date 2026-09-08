@@ -1292,13 +1292,13 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
       nameplate.level:SetPoint("LEFT", nameplate.health, "RIGHT", 5, 0)
       nameplate.eliteicon:SetWidth(33)
       nameplate.eliteicon:SetHeight(33)
-      nameplate.eliteicon:SetPoint("RIGHT", nameplate.health, "LEFT", 0, 0)
+      nameplate.eliteicon:SetPoint("RIGHT", nameplate.health, "LEFT", 2, 0)
     else
       -- 新版布局：等级在血条左端下方大半覆盖血条，14px 精英小图标在名字右端
       nameplate.level:SetPoint("TOPLEFT", nameplate.health, "LEFT", 2, 2)
       nameplate.eliteicon:SetWidth(14)
       nameplate.eliteicon:SetHeight(14)
-      nameplate.eliteicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, 0)
+      nameplate.eliteicon:SetPoint("LEFT", nameplate.name, "RIGHT", 2, 0)
     end
     UpdateIconScale(nameplate)
 

@@ -1573,8 +1573,8 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
 
     -- 自定义精英图标显示
     if plate.eliteicon then
-      -- 图腾、纯文字模式或不显示时,隐藏精英图标
-      if TotemIcon or elitestyle == "text" or elitestyle == "none" then
+      -- 图腾、纯文字模式、不显示或隐藏血条时,隐藏精英图标
+      if hidePlate or TotemIcon or elitestyle == "text" or elitestyle == "none" then
         plate.eliteicon:Hide()
       elseif elite == "worldboss" or elite == "boss" then
         plate.eliteicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_65")

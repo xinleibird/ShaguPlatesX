@@ -1064,7 +1064,7 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.factionicon = nameplate:CreateTexture(nil, "OVERLAY")
     nameplate.factionicon:SetDrawLayer("OVERLAY", 7)
     nameplate.factionicon:SetWidth(0)
-    nameplate.factionicon:SetHeight(16)
+    nameplate.factionicon:SetHeight(24)
     nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -2)
     nameplate.factionicon:Hide()
 
@@ -1596,11 +1596,11 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
         local faction = unitstr and UnitFactionGroup(unitstr) or nil
         if faction == "Alliance" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\alliance.tga")
-          plate.factionicon:SetWidth(16)
+          plate.factionicon:SetWidth(24)
           plate.factionicon:Show()
         elseif faction == "Horde" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\horde.tga")
-          plate.factionicon:SetWidth(16)
+          plate.factionicon:SetWidth(24)
           plate.factionicon:Show()
         else
           plate.factionicon:Hide()

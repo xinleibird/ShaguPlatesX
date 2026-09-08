@@ -1732,9 +1732,17 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
       plate.cache.r, plate.cache.g, plate.cache.b = r, g, b
     end
 
-    if r + g + b ~= plate.cache.namecolor and unittype == "FRIENDLY_PLAYER" and C.nameplates["friendclassnamec"] == "1" and class and mhtui_classcolors[class] then
-      plate.name:SetTextColor(r, g, b, a)
-      plate.cache.namecolor = r + g + b
+    if r + g + b ~= plate.cache.namecolor then
+      local applyNameColor = false
+      if unittype == "ENEMY_PLAYER" and C.nameplates["enemyclassnamec"] == "1" and class and mhtui_classcolors[class] then
+        applyNameColor = true
+      elseif unittype == "FRIENDLY_PLAYER" and C.nameplates["friendclassnamec"] == "1" and class and mhtui_classcolors[class] then
+        applyNameColor = true
+      end
+      if applyNameColor then
+        plate.name:SetTextColor(r, g, b, a)
+        plate.cache.namecolor = r + g + b
+      end
     end
 
     -- update combopoints

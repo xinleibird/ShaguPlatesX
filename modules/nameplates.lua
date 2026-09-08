@@ -1064,8 +1064,8 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.factionicon = nameplate:CreateTexture(nil, "OVERLAY")
     nameplate.factionicon:SetDrawLayer("OVERLAY", 7)
     nameplate.factionicon:SetWidth(0)
-    nameplate.factionicon:SetHeight(14)
-    nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -1)
+    nameplate.factionicon:SetHeight(16)
+    nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -2)
     nameplate.factionicon:Hide()
 
     -- 目标名字文本（显示敌人正在攻击谁，放在名字右边）
@@ -1596,11 +1596,11 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
         local faction = unitstr and UnitFactionGroup(unitstr) or nil
         if faction == "Alliance" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_64")
-          plate.factionicon:SetWidth(14)
+          plate.factionicon:SetWidth(16)
           plate.factionicon:Show()
         elseif faction == "Horde" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_65")
-          plate.factionicon:SetWidth(14)
+          plate.factionicon:SetWidth(16)
           plate.factionicon:Show()
         else
           plate.factionicon:Hide()

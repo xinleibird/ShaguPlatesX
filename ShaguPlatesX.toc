@@ -1,0 +1,17 @@
+## Interface: 11200
+## Title: |cff33ffccShagu|cffffffffPlatesX 
+## Title-zhCN: |CFF00FF00[|r|CFFDD66DD界面|r|CFF00FF00] ShaguPlatesX姓名板
+## Author: Shagu, adapted by Ehawne, 游侠修改
+## Notes: Nameplate addon featuring castbars, class colors and much more. Type /spx to show the settings.
+## Notes-zhCN: 姓名板插件，支持施法条、职业颜色等丰富功能。输入/spx可显示设置界面 
+## Version: 2026.8.31
+## OptionalDeps: ShaguTweaks, SuperAPI_Castlib
+## SavedVariables: ShaguPlatesX_profiles, ShaguPlatesX_addon_profiles, ShaguPlatesX_cache
+## SavedVariablesPerCharacter: ShaguPlatesX_config, ShaguPlatesX_init, ShaguPlatesX_playerDB
+
+ShaguPlates.lua
+
+init\env.xml
+init\compat.xml
+init\api.xml
+init\modules.xml

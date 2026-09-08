@@ -1060,18 +1060,18 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.questicon:SetPoint("RIGHT", nameplate.name, "LEFT", -2, 0)
     nameplate.questicon:Hide()
     
-    -- 目标名字文本（显示敌人正在攻击谁，放在名字右边）
-    nameplate.targetname = nameplate:CreateFontString(nil, "OVERLAY")
-    nameplate.targetname:SetPoint("LEFT", nameplate.name, "RIGHT", 4, 0)
-    nameplate.targetname:SetJustifyH("LEFT")
-
     -- 阵营图标（联盟 crown_64 / 部落 crown_65）
     nameplate.factionicon = nameplate:CreateTexture(nil, "OVERLAY")
     nameplate.factionicon:SetDrawLayer("OVERLAY", 7)
-    nameplate.factionicon:SetWidth(14)
+    nameplate.factionicon:SetWidth(0)
     nameplate.factionicon:SetHeight(14)
-    nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 2, 0)
+    nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -1)
     nameplate.factionicon:Hide()
+
+    -- 目标名字文本（显示敌人正在攻击谁，放在名字右边）
+    nameplate.targetname = nameplate:CreateFontString(nil, "OVERLAY")
+    nameplate.targetname:SetPoint("LEFT", nameplate.factionicon, "RIGHT", 2, 0)
+    nameplate.targetname:SetJustifyH("LEFT")
 
     do -- debuffs
       nameplate.debuffs = {}
@@ -1596,15 +1596,19 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
         local faction = unitstr and UnitFactionGroup(unitstr) or nil
         if faction == "Alliance" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_64")
+          plate.factionicon:SetWidth(14)
           plate.factionicon:Show()
         elseif faction == "Horde" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_65")
+          plate.factionicon:SetWidth(14)
           plate.factionicon:Show()
         else
           plate.factionicon:Hide()
+          plate.factionicon:SetWidth(0)
         end
       else
         plate.factionicon:Hide()
+        plate.factionicon:SetWidth(0)
       end
     end
 

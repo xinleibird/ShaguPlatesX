@@ -195,8 +195,8 @@ function ShaguPlatesX:LoadConfig()
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "clickthreshold",   "0.5")    -- 点击阈值
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "enemyclassc",      "1")      -- 敌对职业颜色
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "friendclassc",     "1")      -- 友方职业颜色
-  ShaguPlatesX:UpdateConfig("nameplates", nil,           "enemyclassnamec",  "0")      -- 敌军职业名字颜色
-  ShaguPlatesX:UpdateConfig("nameplates", nil,           "friendclassnamec", "0")      -- 友军职业名字颜色
+  ShaguPlatesX:UpdateConfig("nameplates", nil,           "enemyclassnamec",  "1")      -- 敌军职业名字颜色
+  ShaguPlatesX:UpdateConfig("nameplates", nil,           "friendclassnamec", "1")      -- 友军职业名字颜色
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "raidiconsize",     "50")     -- 团队图标大小
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "raidiconpos",      "CENTER") -- 团队图标位置
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "raidiconoffx",     "0")      -- 团队图标X偏移

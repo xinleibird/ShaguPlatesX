@@ -1065,6 +1065,14 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.targetname:SetPoint("LEFT", nameplate.name, "RIGHT", 4, 0)
     nameplate.targetname:SetJustifyH("LEFT")
 
+    -- 阵营图标（联盟 crown_64 / 部落 crown_65）
+    nameplate.factionicon = nameplate:CreateTexture(nil, "OVERLAY")
+    nameplate.factionicon:SetDrawLayer("OVERLAY", 7)
+    nameplate.factionicon:SetWidth(14)
+    nameplate.factionicon:SetHeight(14)
+    nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 2, 0)
+    nameplate.factionicon:Hide()
+
     do -- debuffs
       nameplate.debuffs = {}
       CreateDebuffIcon(nameplate, 1)
@@ -1579,6 +1587,24 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
         plate.eliteicon:Show()
       else
         plate.eliteicon:Hide()
+      end
+    end
+
+    -- 玩家阵营图标
+    if plate.factionicon then
+      if C.nameplates["factionicon"] == "1" and player then
+        local faction = unitstr and UnitFactionGroup(unitstr) or nil
+        if faction == "Alliance" then
+          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_64")
+          plate.factionicon:Show()
+        elseif faction == "Horde" then
+          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_65")
+          plate.factionicon:Show()
+        else
+          plate.factionicon:Hide()
+        end
+      else
+        plate.factionicon:Hide()
       end
     end
 

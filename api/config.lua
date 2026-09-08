@@ -215,6 +215,7 @@ function ShaguPlatesX:LoadConfig()
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "showguildname",    "0")      -- 显示公会名
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "elitestyle",       "icon")   -- 精英标识样式(icon图标/text文字/both两者/none无)
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "disableincity",    "0")      -- 主城禁用姓名板
+  ShaguPlatesX:UpdateConfig("nameplates", nil,           "factionicon",      "1")      -- 显示玩家阵营图标
 
   -- 战斗状态颜色
   ShaguPlatesX:UpdateConfig("nameplates", nil,           "outcombatstate",   "1")      -- 脱战状态颜色

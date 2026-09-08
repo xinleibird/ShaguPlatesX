@@ -52,6 +52,7 @@ ShaguPlatesX_translation["enUS"] = {
   ["Disable"] = nil,
   ["Disabled"] = nil,
   ["Disable Nameplates In City"] = nil,
+  ["Show Player Faction Icon"] = nil,
   ["Display Debuff Durations"] = nil,
   ["Dodge"] = nil,
   ["Do you really want to reset |cffffaaaaEVERYTHING|r?"] = nil,

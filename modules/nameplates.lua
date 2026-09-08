@@ -1060,7 +1060,7 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.questicon:SetPoint("RIGHT", nameplate.name, "LEFT", -2, 0)
     nameplate.questicon:Hide()
     
-    -- 阵营图标（联盟 crown_64 / 部落 crown_65）
+    -- 阵营图标（联盟 alliance.tga / 部落 horde.tga）
     nameplate.factionicon = nameplate:CreateTexture(nil, "OVERLAY")
     nameplate.factionicon:SetDrawLayer("OVERLAY", 7)
     nameplate.factionicon:SetWidth(0)
@@ -1595,11 +1595,11 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
       if C.nameplates["factionicon"] == "1" and player then
         local faction = unitstr and UnitFactionGroup(unitstr) or nil
         if faction == "Alliance" then
-          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_64")
+          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\alliance.tga")
           plate.factionicon:SetWidth(16)
           plate.factionicon:Show()
         elseif faction == "Horde" then
-          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_65")
+          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\horde.tga")
           plate.factionicon:SetWidth(16)
           plate.factionicon:Show()
         else

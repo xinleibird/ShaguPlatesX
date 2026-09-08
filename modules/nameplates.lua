@@ -1052,6 +1052,14 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.eliteicon:SetDrawLayer("OVERLAY", 7) -- 确保图标在边框上面
     nameplate.eliteicon:Hide()
 
+    -- 隐藏血条时精英标识(16x16,位置与阵营图标一致)
+    nameplate.eliteiconmini = nameplate:CreateTexture(nil, "OVERLAY")
+    nameplate.eliteiconmini:SetDrawLayer("OVERLAY", 7)
+    nameplate.eliteiconmini:SetWidth(16)
+    nameplate.eliteiconmini:SetHeight(16)
+    nameplate.eliteiconmini:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -2)
+    nameplate.eliteiconmini:Hide()
+
     -- 任务怪姓名板提示图标（放在名字左边）
     nameplate.questicon = nameplate:CreateTexture(nil, "OVERLAY")
     nameplate.questicon:SetDrawLayer("OVERLAY", 7) -- 确保图标在边框上面
@@ -1064,7 +1072,7 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.factionicon = nameplate:CreateTexture(nil, "OVERLAY")
     nameplate.factionicon:SetDrawLayer("OVERLAY", 7)
     nameplate.factionicon:SetWidth(0)
-    nameplate.factionicon:SetHeight(24)
+    nameplate.factionicon:SetHeight(16)
     nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -2)
     nameplate.factionicon:Hide()
 
@@ -1588,6 +1596,24 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
       else
         plate.eliteicon:Hide()
       end
+
+      -- 隐藏血条时: 16x16 简化精英图标(位置与阵营图标一致)
+      if hidePlate then
+        if elite == "worldboss" or elite == "boss" then
+          plate.eliteiconmini:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_65")
+          plate.eliteiconmini:Show()
+        elseif elite == "elite" then
+          plate.eliteiconmini:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_64")
+          plate.eliteiconmini:Show()
+        elseif elite == "rare" or elite == "rareelite" then
+          plate.eliteiconmini:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_66")
+          plate.eliteiconmini:Show()
+        else
+          plate.eliteiconmini:Hide()
+        end
+      else
+        plate.eliteiconmini:Hide()
+      end
     end
 
     -- 玩家阵营图标
@@ -1596,11 +1622,11 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
         local faction = unitstr and UnitFactionGroup(unitstr) or nil
         if faction == "Alliance" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\alliance.tga")
-          plate.factionicon:SetWidth(24)
+          plate.factionicon:SetWidth(16)
           plate.factionicon:Show()
         elseif faction == "Horde" then
           plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\horde.tga")
-          plate.factionicon:SetWidth(24)
+          plate.factionicon:SetWidth(16)
           plate.factionicon:Show()
         else
           plate.factionicon:Hide()

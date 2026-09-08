@@ -1568,13 +1568,14 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
       -- 图腾、纯文字模式或不显示时,隐藏精英图标
       if TotemIcon or elitestyle == "text" or elitestyle == "none" then
         plate.eliteicon:Hide()
-      elseif elite == "elite" or elite == "worldboss" or elite == "boss" then
-        -- 精英和世界BOSS：旧版布局用皇冠，新版用金龙图标（取自 pfQuest）
-        plate.eliteicon:SetTexture(cfg_layoutold and "Interface\\AddOns\\ShaguPlatesX\\img\\crown_64" or "Interface\\AddOns\\ShaguPlatesX\\img\\JY")
+      elseif elite == "worldboss" or elite == "boss" then
+        plate.eliteicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_65")
+        plate.eliteicon:Show()
+      elseif elite == "elite" then
+        plate.eliteicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_64")
         plate.eliteicon:Show()
       elseif elite == "rare" or elite == "rareelite" then
-        -- 稀有和稀有精英：旧版布局用皇冠，新版用银龙图标（取自 pfQuest）
-        plate.eliteicon:SetTexture(cfg_layoutold and "Interface\\AddOns\\ShaguPlatesX\\img\\crown_65" or "Interface\\AddOns\\ShaguPlatesX\\img\\YY")
+        plate.eliteicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\crown_66")
         plate.eliteicon:Show()
       else
         plate.eliteicon:Hide()

@@ -312,6 +312,17 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
       data.elite = UnitClassification(guid) or false
     end
 
+    if data.enemyPlayerHelper == nil then
+      local owner = guid .. "owner"
+      local ownerFaction = UnitFactionGroup(owner)
+      if ownerFaction then
+        local reaction = UnitReaction(owner, "player")
+        data.enemyPlayerHelper = (reaction == 1 or reaction == 2) or false
+      else
+        data.enemyPlayerHelper = false
+      end
+    end
+
     if data.guild == nil then
       local guild = GetGuildInfo(guid)
       data.guild = guild or false
@@ -1448,7 +1459,7 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     end
 
     -- cache stable unit data per GUID so periodic updates stay cheap
-    local class, player, elite, guild
+    local class, player, elite, guild, enemyPlayerHelper
     if guid then
       local meta = GetGuidMeta(guid, frameState.now > 0 and frameState.now or GetTime())
       if meta then
@@ -1456,10 +1467,15 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
         player = meta.player
         elite = meta.elite or nil
         guild = meta.guild or nil
+        enemyPlayerHelper = meta.enemyPlayerHelper or nil
       end
     end
 
-    if player and unittype == "ENEMY_NPC" then unittype = "ENEMY_PLAYER" end
+    if unittype == "ENEMY_NPC" then
+      if player or enemyPlayerHelper then
+        unittype = "ENEMY_PLAYER"
+      end
+    end
     elite = plate.original.levelicon:IsShown() and not player and "boss" or elite
 
     -- skip data updates on invisible frames

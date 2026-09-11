@@ -1056,7 +1056,7 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.level = nameplate.textlayer:CreateFontString(nil, "OVERLAY")
     nameplate.level:SetPoint("RIGHT", nameplate.health, "LEFT", -3, 0)
 
-    nameplate.raidicon:SetParent(nameplate.health)
+    nameplate.raidicon:SetParent(nameplate)
     nameplate.raidicon:SetDrawLayer("OVERLAY")
     nameplate.raidicon:SetTexture(ShaguPlatesX.media["img:raidicons"])
 

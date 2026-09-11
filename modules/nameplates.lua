@@ -1079,7 +1079,7 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.eliteiconmini:SetDrawLayer("OVERLAY", 7)
     nameplate.eliteiconmini:SetWidth(16)
     nameplate.eliteiconmini:SetHeight(16)
-    nameplate.eliteiconmini:SetPoint("LEFT", nameplate.name, "RIGHT", 0, 0)
+    nameplate.eliteiconmini:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -1)
     nameplate.eliteiconmini:Hide()
 
     -- 任务怪姓名板提示图标（放在名字左边）
@@ -1095,7 +1095,7 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     nameplate.factionicon:SetDrawLayer("OVERLAY", 7)
     nameplate.factionicon:SetWidth(0)
     nameplate.factionicon:SetHeight(16)
-    nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, 0)
+    nameplate.factionicon:SetPoint("LEFT", nameplate.name, "RIGHT", 0, -1)
     nameplate.factionicon:Hide()
 
     -- 目标名字文本（显示敌人正在攻击谁，放在名字右边）

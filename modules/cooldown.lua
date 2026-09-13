@@ -60,10 +60,10 @@ ShaguPlatesX:RegisterModule("cooldown", "vanilla", function ()
 
   local height, size
   local function pfCreateCoolDown(cooldown, start, duration)
-    cooldown.pfCooldownText = CreateFrame("Frame", "pfCooldownFrame", cooldown:GetParent())
+    cooldown.pfCooldownText = CreateFrame("Frame", nil, cooldown:GetParent())
     cooldown.pfCooldownText:SetAllPoints(cooldown)
     cooldown.pfCooldownText:SetFrameLevel(cooldown:GetParent():GetFrameLevel() + 1)
-    cooldown.pfCooldownText.text = cooldown.pfCooldownText:CreateFontString("pfCooldownFrameText", "OVERLAY")
+    cooldown.pfCooldownText.text = cooldown.pfCooldownText:CreateFontString(nil, "OVERLAY")
 
     if not cooldown.pfCooldownType then
       size = tonumber(C.appearance.cd.font_size_foreign)

@@ -1651,8 +1651,8 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     -- 玩家阵营图标
     if plate.factionicon then
       if C.nameplates["factionicon"] == "1" and player then
-        local inGroup = UnitInRaid("player") or UnitExists("party1")
-        local useTeamIcon = C.nameplates["factionicon_team"] == "1" and inGroup
+        local isTeammate = unitstr and (UnitInRaid(unitstr) or UnitInParty(unitstr))
+        local useTeamIcon = C.nameplates["factionicon_team"] == "1" and isTeammate
 
         if useTeamIcon then
           -- 组队/团队中显示统一队友图标

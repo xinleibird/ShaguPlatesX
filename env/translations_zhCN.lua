@@ -54,6 +54,7 @@ ShaguPlatesX_translation["zhCN"] = {
   ["Disabled"] = "不显示",
   ["Disable Nameplates In City"] = "在主城禁用姓名板",
   ["Show Player Faction Icon"] = "显示玩家阵营图标",
+  ["Unified Team Icon In Group"] = "组队时显示统一队友图标",
   ["Display Debuff Durations"] = "显示Debuff持续时间",
   ["Dodge"] = "聊天框顶部",
   ["Do you really want to reset |cffffaaaaEVERYTHING|r?"] = "确定重置|cffffaaaa所有|r配置吗?",

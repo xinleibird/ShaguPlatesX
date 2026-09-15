@@ -1651,18 +1651,29 @@ ShaguPlatesX:RegisterModule("nameplates", "vanilla", function ()
     -- 玩家阵营图标
     if plate.factionicon then
       if C.nameplates["factionicon"] == "1" and player then
-        local faction = unitstr and UnitFactionGroup(unitstr) or nil
-        if faction == "Alliance" then
-          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\alliance.tga")
+        local inGroup = UnitInRaid("player") or UnitExists("party1")
+        local useTeamIcon = C.nameplates["factionicon_team"] == "1" and inGroup
+
+        if useTeamIcon then
+          -- 组队/团队中显示统一队友图标
+          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\star.tga")
           plate.factionicon:SetWidth(16)
-          plate.factionicon:Show()
-        elseif faction == "Horde" then
-          plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\horde.tga")
-          plate.factionicon:SetWidth(16)
+          plate.factionicon:SetHeight(16)
           plate.factionicon:Show()
         else
-          plate.factionicon:Hide()
-          plate.factionicon:SetWidth(0)
+          local faction = unitstr and UnitFactionGroup(unitstr) or nil
+          if faction == "Alliance" then
+            plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\alliance.tga")
+            plate.factionicon:SetWidth(16)
+            plate.factionicon:Show()
+          elseif faction == "Horde" then
+            plate.factionicon:SetTexture("Interface\\AddOns\\ShaguPlatesX\\img\\horde.tga")
+            plate.factionicon:SetWidth(16)
+            plate.factionicon:Show()
+          else
+            plate.factionicon:Hide()
+            plate.factionicon:SetWidth(0)
+          end
         end
       else
         plate.factionicon:Hide()
